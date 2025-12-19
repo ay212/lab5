@@ -11,9 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
+#include <QtWidgets/QPlainTextEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,24 +26,50 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QVBoxLayout *verticalLayout_2;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout;
+    QPlainTextEdit *plainTextEdit;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *starStopButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 600);
+        MainWindow->resize(600, 373);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        verticalLayout_2 = new QVBoxLayout(centralwidget);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName("groupBox");
+        verticalLayout = new QVBoxLayout(groupBox);
+        verticalLayout->setObjectName("verticalLayout");
+        plainTextEdit = new QPlainTextEdit(groupBox);
+        plainTextEdit->setObjectName("plainTextEdit");
+
+        verticalLayout->addWidget(plainTextEdit);
+
+
+        verticalLayout_2->addWidget(groupBox);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        starStopButton = new QPushButton(centralwidget);
+        starStopButton->setObjectName("starStopButton");
+
+        horizontalLayout->addWidget(starStopButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
+
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 17));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName("statusbar");
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -48,7 +78,9 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250", nullptr));
+        groupBox->setTitle(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250\346\227\245\345\277\227", nullptr));
+        starStopButton->setText(QCoreApplication::translate("MainWindow", "\345\220\257\345\212\250\346\234\215\345\212\241\345\231\250", nullptr));
     } // retranslateUi
 
 };

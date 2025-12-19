@@ -13,12 +13,15 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,38 +32,69 @@ class Ui_MainWindow
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QLabel *label;
+    QLabel *titleLabel;
     QStackedWidget *stackedWidget;
     QWidget *page;
     QGridLayout *gridLayout_5;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *horizontalSpacer;
-    QFrame *frame;
+    QFrame *loginFrame;
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout_2;
     QLabel *label_3;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
-    QLineEdit *lineEdit;
+    QLineEdit *usernameEdit;
+    QLineEdit *serverEdit;
     QSpacerItem *verticalSpacer;
-    QPushButton *pushButton;
+    QPushButton *loginButton;
     QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_4;
     QWidget *page_2;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout;
+    QTextEdit *textEdit;
+    QListWidget *listWidget;
+    QHBoxLayout *horizontalLayout_2;
+    QLineEdit *lineEdit;
+    QPushButton *sayButton;
+    QPushButton *logoutButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(383, 283);
+        MainWindow->resize(553, 363);
+        MainWindow->setStyleSheet(QString::fromUtf8("#titleLabel{\n"
+"background:white;\n"
+"font-size:20px;\n"
+"border:none;\n"
+"border-bottom:1px soild black;\n"
+"padding:5px;\n"
+"font:24pt\"\351\273\221\344\275\223\";\n"
+"color:rgb(255,255,255);\n"
+"background-color:rgba(0,170,127,255);\n"
+"}\n"
+"\n"
+"#mainFrame{\n"
+"background:white;\n"
+"border:none;\n"
+"}\n"
+"\n"
+"#loginFrame{\n"
+"background:qlineargradient(x1:0,y1:0,x2:0,y2:1,stop:0 #ddf,stop: 1 #aaf);\n"
+"border:1px solid gray;\n"
+"padding:10px;\n"
+"border-radius:25px;\n"
+"}\n"
+""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        label = new QLabel(centralwidget);
-        label->setObjectName("label");
+        titleLabel = new QLabel(centralwidget);
+        titleLabel->setObjectName("titleLabel");
 
-        gridLayout->addWidget(label, 0, 0, 1, 1);
+        gridLayout->addWidget(titleLabel, 0, 0, 1, 1);
 
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName("stackedWidget");
@@ -76,33 +110,33 @@ public:
 
         gridLayout_5->addItem(horizontalSpacer, 1, 0, 1, 1);
 
-        frame = new QFrame(page);
-        frame->setObjectName("frame");
-        frame->setFrameShape(QFrame::Shape::StyledPanel);
-        frame->setFrameShadow(QFrame::Shadow::Raised);
-        verticalLayout = new QVBoxLayout(frame);
+        loginFrame = new QFrame(page);
+        loginFrame->setObjectName("loginFrame");
+        loginFrame->setFrameShape(QFrame::Shape::StyledPanel);
+        loginFrame->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout = new QVBoxLayout(loginFrame);
         verticalLayout->setObjectName("verticalLayout");
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setObjectName("gridLayout_2");
-        label_3 = new QLabel(frame);
+        label_3 = new QLabel(loginFrame);
         label_3->setObjectName("label_3");
 
         gridLayout_2->addWidget(label_3, 1, 0, 1, 1);
 
-        label_2 = new QLabel(frame);
+        label_2 = new QLabel(loginFrame);
         label_2->setObjectName("label_2");
 
         gridLayout_2->addWidget(label_2, 0, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(frame);
-        lineEdit_2->setObjectName("lineEdit_2");
+        usernameEdit = new QLineEdit(loginFrame);
+        usernameEdit->setObjectName("usernameEdit");
 
-        gridLayout_2->addWidget(lineEdit_2, 1, 1, 1, 1);
+        gridLayout_2->addWidget(usernameEdit, 1, 1, 1, 1);
 
-        lineEdit = new QLineEdit(frame);
-        lineEdit->setObjectName("lineEdit");
+        serverEdit = new QLineEdit(loginFrame);
+        serverEdit->setObjectName("serverEdit");
 
-        gridLayout_2->addWidget(lineEdit, 0, 1, 1, 1);
+        gridLayout_2->addWidget(serverEdit, 0, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout_2);
@@ -111,13 +145,13 @@ public:
 
         verticalLayout->addItem(verticalSpacer);
 
-        pushButton = new QPushButton(frame);
-        pushButton->setObjectName("pushButton");
+        loginButton = new QPushButton(loginFrame);
+        loginButton->setObjectName("loginButton");
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(loginButton);
 
 
-        gridLayout_5->addWidget(frame, 1, 1, 1, 1);
+        gridLayout_5->addWidget(loginFrame, 1, 1, 1, 1);
 
         horizontalSpacer_2 = new QSpacerItem(90, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
@@ -130,6 +164,44 @@ public:
         stackedWidget->addWidget(page);
         page_2 = new QWidget();
         page_2->setObjectName("page_2");
+        verticalLayout_2 = new QVBoxLayout(page_2);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        textEdit = new QTextEdit(page_2);
+        textEdit->setObjectName("textEdit");
+
+        horizontalLayout->addWidget(textEdit);
+
+        listWidget = new QListWidget(page_2);
+        listWidget->setObjectName("listWidget");
+        listWidget->setMaximumSize(QSize(120, 16777215));
+
+        horizontalLayout->addWidget(listWidget);
+
+
+        verticalLayout_2->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        lineEdit = new QLineEdit(page_2);
+        lineEdit->setObjectName("lineEdit");
+
+        horizontalLayout_2->addWidget(lineEdit);
+
+        sayButton = new QPushButton(page_2);
+        sayButton->setObjectName("sayButton");
+
+        horizontalLayout_2->addWidget(sayButton);
+
+        logoutButton = new QPushButton(page_2);
+        logoutButton->setObjectName("logoutButton");
+
+        horizontalLayout_2->addWidget(logoutButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
         stackedWidget->addWidget(page_2);
 
         gridLayout->addWidget(stackedWidget, 1, 0, 1, 1);
@@ -138,16 +210,21 @@ public:
 
         retranslateUi(MainWindow);
 
+        stackedWidget->setCurrentIndex(0);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "\346\235\216\351\223\266\350\200\200\347\232\204\350\201\212\345\244\251\345\256\244", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\350\201\212\345\244\251\345\256\244\345\256\242\346\210\267\347\253\257", nullptr));
+        titleLabel->setText(QCoreApplication::translate("MainWindow", "\346\235\216\351\223\266\350\200\200\347\232\204\350\201\212\345\244\251\345\256\244", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "\346\230\265\347\247\260\357\274\232", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250\345\234\260\345\235\200\357\274\232", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225\350\201\212\345\244\251\345\256\244", nullptr));
+        loginButton->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225\350\201\212\345\244\251\345\256\244", nullptr));
+        sayButton->setText(QCoreApplication::translate("MainWindow", "\345\217\221\351\200\201", nullptr));
+        logoutButton->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272", nullptr));
     } // retranslateUi
 
 };
