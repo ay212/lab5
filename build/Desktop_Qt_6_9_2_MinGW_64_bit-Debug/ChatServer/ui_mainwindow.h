@@ -32,7 +32,7 @@ public:
     QPlainTextEdit *logEditor;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
-    QPushButton *starStopButton;
+    QPushButton *startStopButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -61,10 +61,10 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        starStopButton = new QPushButton(centralwidget);
-        starStopButton->setObjectName("starStopButton");
+        startStopButton = new QPushButton(centralwidget);
+        startStopButton->setObjectName("startStopButton");
 
-        horizontalLayout->addWidget(starStopButton);
+        horizontalLayout->addWidget(startStopButton);
 
 
         verticalLayout_2->addLayout(horizontalLayout);
@@ -80,7 +80,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250\346\227\245\345\277\227", nullptr));
-        starStopButton->setText(QCoreApplication::translate("MainWindow", "\345\220\257\345\212\250\346\234\215\345\212\241\345\231\250", nullptr));
+        startStopButton->setText(QCoreApplication::translate("MainWindow", "\345\220\257\345\212\250\346\234\215\345\212\241\345\231\250", nullptr));
     } // retranslateUi
 
 };

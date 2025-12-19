@@ -43,7 +43,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="starStopButton">
+       <widget class="QPushButton" name="startStopButton">
         <property name="text">
          <string>启动服务器</string>
         </property>
