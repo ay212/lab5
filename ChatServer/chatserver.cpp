@@ -41,7 +41,7 @@ void ChatServer::jsonReceived(ServerWorker *sender, const QJsonObject &docObj)
         return;
     if(typeVal.toString().compare("message",Qt::CaseInsensitive)==0){
         const QJsonValue textVal =docObj.value("text");
-        if(typeVal.isNull() || !typeVal.isString())
+        if(textVal.isNull() || !textVal.isString())
             return;
         const QString text =textVal.toString().trimmed();
         if(text.isEmpty())
